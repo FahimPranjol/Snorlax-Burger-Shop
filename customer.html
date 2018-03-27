@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <center>
+            <h1>
+                <img src="https://github.com/FahimPranjol/Snorlax-Burger-Shop/blob/master/welc.png?raw=true"
+                    alt="Snorlax Burger">
+                    <br>
+                    <font size="5" color="#990000">Hello User!</font>
+                    </h1>
+           
+                <font color="#990000" </font>
+                    <button type="button">Log Out</button>
+                    <br>
+                    <button type="button">Games</button>
+                    <input type="button" value="Refill">
+                    <button type="button">Help</button>
+                    <br>
+                    <button type="button">Menu</button>
+                    <br>
+                    <button type="button">Reservation</button>
+                    <button type="button">About</button>
+                    <br>
+                    
+                    <p id="Refill"></p>
+        </center>
+        <script>
+            
+        var btn = document.querySelector('input');
+        var txt = document.querySelector('p');
+        
+        btn.addEventListener('click', updateBtn);
+        
+        function updateBtn() {
+            if (btn.value === 'Refill') {
+                btn.value = 'Click if Refilled';
+                txt.textContent = 'Waitstaff has been notified';
+            } else {
+                btn.value = 'Refill';
+                txt.textContent = '';
+            }
+        }
+        </script>
+        
+    </body>
+</html>
