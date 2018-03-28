@@ -1,0 +1,49 @@
+{% extends "home.html" %}
+{% block content %}
+
+<img src="https://raw.githubusercontent.com/FahimPranjol/Snorlax-Burger-Shop/master/big_snorlax_burger_by_cathto.jpg"
+                 alt="Snorlax Burger" width="128" height="100">
+
+<h1 align="center">RESERVATION</h1>
+
+    <center>
+    <form action="/reserve" method="post">
+
+        <div class="form-group">
+
+            <label for="date">Enter Date : </label>
+            <input type="date" id="date" name="date">
+
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label for="time">Enter Time : </label>
+            <input type="time" id="time" name="time">
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="form-group">
+
+            <label for="firstname">Enter Name : </label>
+            <input type="name" id="firstname" name="firstname">
+            <br>
+            <br>
+            <label for="email">Enter Email : </label>
+            <input type="email" id="email" name="email" />
+            <br>
+            <br>
+            <label for="phone">Enter Phone : </label>
+            <input type="phone" id="phone" name="phone" />
+        </form>
+        <br>
+        <br>
+
+        <button align="center" type="submit" class="submit-button">Reserve</button>
+
+    </form>
+    </center>
+{% endblock %}
