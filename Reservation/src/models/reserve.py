@@ -21,7 +21,7 @@ class Info(object):
             return cls(**data)
     @classmethod
     def get_time(cls):
-        data = Database.find_one("info", {"time":cls.time})
+        data = Database.find_one("infos", {"time":cls.time})
         if data is not None:
            return cls(**data)
 
