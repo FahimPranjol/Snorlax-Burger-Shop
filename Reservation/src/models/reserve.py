@@ -29,6 +29,7 @@ class Info(object):
     def new_reservation(cls,name, date, time):
         reserve = cls.get_date(date)
 
+
         if reserve is None:
             new_reserve = cls(name, date, time)
             new_reserve.save_to_mongo()
@@ -43,6 +44,7 @@ class Info(object):
 
     def json(self):
         return{
+
             "date":self.date,
             "time":self.time
 

@@ -2,7 +2,7 @@ import uuid
 from src.common.database import Database
 from flask import session
 
-
+from src.models.menu import Menu
 
 
 class Customer(object):
@@ -31,6 +31,22 @@ class Customer(object):
             # Check the password
             return customer.password == password
         return False
+
+    @classmethod
+    def register(cls, email, password):
+        customer = cls.get_by_email(email)
+        if customer is None:
+            # User doesn't exist, so we can create it
+            new_customer = cls(email, password)
+            new_customer.save_to_mongo()
+            session['email'] = email
+            return True
+        else:
+            # User exists :(
+            return False
+
+
+
 
     @staticmethod
     def login(user_email):
