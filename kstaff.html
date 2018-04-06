@@ -4,7 +4,9 @@
 		<meta charset= "UTF-8">
 		<title>Kitchen staff page</title>
 	</head>
-	<body align="center">
+	<form action="kstaff"  >
+
+		<body align="center">
 		<p>Current Order:<br>
 		<label>Table:</label><h1>{{ table }}</h1>
 		
@@ -13,9 +15,9 @@
 		<br><label>Price</label><h3>{{ price }}</h3>
 		
 		<br><br><label>Comment:</label><br></p>
-		
-		<form method="get" enctype="application/x-www-form-urlencoded" action="/html/codes/html_form_handler.cfm">
+
 		<p><button>Order Complete!</button></p>
-		</form>
+
 	</body>
+		</form>
 </html>
