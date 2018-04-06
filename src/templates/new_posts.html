@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container page-form" xmlns="http://www.w3.org/1999/html">
+    <form id="new-post" action="/posts/new?{{blog_id}}" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" class="form-control" name="'email">
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea type="text" id="content" class="form-control" name="content"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Publish</button>
+    </form>
+</div>
+{% endblock l>
