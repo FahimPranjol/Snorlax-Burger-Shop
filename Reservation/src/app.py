@@ -9,20 +9,20 @@ from src.models.reserve import Info
 app = Flask(__name__)
 app.secret_key ="fahim"
 
-#API end points
 
-@app.route('/')# www.mysite.com/API/
+
+@app.route('/')
 def home_method(): #method to access the input
     return render_template('login.html')
 
 @app.route('/about')
 def about():
     return render_template("about.html")
-
+//initializes an instance of a class or object. 
 @app.before_first_request
 def initialize_database():
     Database.initialize()
-
+// defining the user login function
 @app.route('/login', methods=['POST'])
 def login_user():
     email = request.form['email']
@@ -35,14 +35,14 @@ def login_user():
         return render_template("login.html")
 
     return render_template("profile.html", email=session['email'])
-
+// defining the menu item function
 @app.route('/menu')
 def menu_item():
 
     return render_template('menu.html')
 
-
-@app.route('/menu/cart', methods=['GET'])# www.mysite.com/API/
+//define for the checkout function
+@app.route('/menu/cart', methods=['GET'])
 def checkout(): #method to access the input
 
     name = request.args.get('item1')
@@ -50,13 +50,13 @@ def checkout(): #method to access the input
         return render_template('cart.html', name=name)
     else:
         return render_template('menu.html')
-
+// define the guest function
 @app.route('/login/guest')
 def guest():
     return render_template('guest.html')
 
 
-
+// define the user register function
 @app.route('/register', methods=['POST'])
 def register_user():
     return render_template("register.html")
@@ -73,19 +73,19 @@ def register():
 
     return render_template("login.html")
 
-
-@app.route('/reserve', methods=['POST'])# www.mysite.com/API/
+// define the reserve function
+@app.route('/reserve', methods=['POST'])
 def reserve():
     return render_template("reserve.html")
-
-@app.route('/logout', methods=['POST'])# www.mysite.com/API/
+// define the logout function
+@app.route('/logout', methods=['POST'])
 def logout():
     return render_template("login.html")
 
 
 
 
-@app.route('/auth/reserve', methods=['POST'])# www.mysite.com/API/
+@app.route('/auth/reserve', methods=['POST'])
 def reservation(): #method to access the input
     name = request.form['name']
     date = request.form['date']
