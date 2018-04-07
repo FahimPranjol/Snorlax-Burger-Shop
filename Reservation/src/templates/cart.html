@@ -2,5 +2,14 @@
 {% extends "home.html" %}
 {% block content %}
 
-    <p align="center">Hello {{ name }} </p>
+    <p align="center">Hello {{ name }} with  {{ price }} </p>
+
+
+    <form action="/menu" method="get">
+        <input type="submit" value="Add more items"></input>
+    </form>
+
+    <form action="/checkout" method="get">
+        <input type="submit" value="checkout"></input>
+    </form>
 {% endblock %}

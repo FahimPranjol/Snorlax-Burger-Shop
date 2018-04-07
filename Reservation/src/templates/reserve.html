@@ -7,7 +7,7 @@
 <h1 align="center">RESERVATION</h1>
 
     <center>
-    <form action="/auth/reserve" method="post" name="res" id="res">
+    <form action="/auth/reserve" method="post">
 
         <div class="form-group">
 
@@ -29,15 +29,15 @@
         <div class="form-group">
 
             <label for="name">Enter Name : </label>
-            <input type="name" id="name" name="name"> <span class="error"><p id="nameError"></p></span>
+            <input type="name" id="name" name="name">
             <br>
             <br>
             <label for="email">Enter Email : </label>
-            <input type="email" id="email" name="email"/> <span class="error"><p id="emailError"></p></span>
+            <input type="email" id="email" name="email" />
             <br>
             <br>
             <label for="phone">Enter Phone : </label>
-            <input type="phone" id="phone" name="phone"/> <span class="error"><p id="phoneError"></p></span>
+            <input type="phone" id="phone" name="phone" />
 
         <br>
         <br>
@@ -46,50 +46,5 @@
         </div>
     </form>
 
-<script>
-document.getElementById("res").onsubmit = function()
-{
-	var printName = document.forms["res"]["name"].value;
-	var printEmail = document.forms["res"]["email"].value;
-	var printPhone = document.forms["res"]["phone"].value;
-	
-	var click = true;
-	
-	if(printName == null || printName =="")
-	{
-		printNameError = "Please enter your name";
-		document.getElementById("nameError").innerHTML = printNameError;
-		click = false;
-	}
-	
-	if(printEmail == null || printEmail =="")
-	{
-		printEmailError = "Please enter your Email";
-		document.getElementById("emailError").innerHTML = printEmailError;
-		click = false;
-	}
-	
-	if(printPhone == null || printPhone =="")
-	{
-		printPhoneError = "Please enter your PhonrNumber";
-		document.getElementById("phoneError").innerHTML = printPhoneError;
-		click = false;
-	}
-	
-	return click;
-}
-
-function remove()
-{
-	document.getElementById(this.id + "_error").innerHTML = "";
-}
-
-document.getElementById("name").onkeyup = remove;
-document.getElementById("email").onkeyup = remove;
-document.getElementById("phone").onkeyup = remove;
-
-</script>
-
-	
     </center>
 {% endblock %}

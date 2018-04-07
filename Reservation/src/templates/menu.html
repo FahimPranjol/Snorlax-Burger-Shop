@@ -1,18 +1,15 @@
 <html>
 
 <style>
-
     .menu-body {
   max-width: 680px;
   margin: 0 auto;
   display: block;
   color: rgb(92, 92, 92);
 }
-
 .menu-section {
   margin-bottom: 80px;
 }
-
 .menu-section-title {
   font-family: georgia;
   font-size: 50px;
@@ -21,34 +18,26 @@
   margin: 20px 0;
   text-align: Center;
 }
-
 .menu-item {
   margin: 35px 0;
   font-size: 18px;
 }
-
 .menu-item-name{
   font-family: helvetica;
   font-weight: bold;
   border-bottom: 2px dotted rgb(213, 213, 213);
 }
-
 .menu-item-description {
   font-style: italic;
   font-size: .9em;
   line-height: 1.5em;
 }
-
 .menu-item-price{
   float: right;
   font-weight: bold;
   font-family: arial;
   margin-top: -22px;
 }
-
-
-
-
 </style>
 
 
@@ -60,20 +49,132 @@
       <div class="menu-item">
          <div class="menu-item-name">
              <form action="/menu/cart" method="get">
-             <input type="submit" name="item1" value="Burger"> Delicious Dish</input>
+             <input type="submit" name="item1" value="Burger"></input>
+
+                 </div>
+
+                 <div class="menu-item-price">
+                    $7.00
+                </div>
+
+      <div class="menu-item-description">
+            Our traditional burger with a beef patty and all the fixings. Letuuce, onions, tomatoes, pickles, mustard, mayo, ketchup, and
+             our signature Snorlax Sauce. Calories 490.
+         </div>
+           </form>
+
+      <!-- Item ends -->
+      <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+             <input type="submit" name="item1"value="Snorlax Burger"></input>
+            </form>
+         </div>
+         <div class="menu-item-price">
+            $9.00
+         </div>
+         <div class="menu-item-description">
+            Everything you get in a traditional Snorlax Burger but with the double the beef. Calories 700.
+         </div>
+      </div>
+      <!-- Item ends -->
+      <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+            <input type="submit" name="Snorlax Triple"value="Snorlax Triple"></input>
+         </div>
+         <div class="menu-item-price">
+            $12.00
+         </div>
+         <div class="menu-item-description">
+            Traditional Snorlax Burger with TRIPLE the beef!
+         </div>
+      </div>
+      <!-- Item ends -->
+      <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+            <input type="submit" name="Chicken Strips"value="Chicken Strips"></input>
+         </div>
+         <div class="menu-item-price">
+            $4.00
+         </div>
+         <div class="menu-item-description">
+            6 Premium Tenders. Served with a side of fries.
+         </div>
+      </div>
+      <!-- Item ends -->
+   </div>
+   <!-- Section ends: Appetizers -->
+   <!-- Section starts: Drinks -->
+   <div class="menu-section">
+      <h2 class="menu-section-title">DRINKS</h2>
+      <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+            <input type="submit" name="Sprite" value="Sprite"></input>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            Crisp Sprite!
+         </div>
+      </div>
+      <!-- Item ends -->
+      <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+             <input type="submit" name="Coke"value="Coke"></input>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            Classic Coca-Cola!
+         </div>
+      </div>
+      <!-- Item ends -->
+      <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+             <input type="submit" name="Fruit Punch"value="Fruit Punch"></input>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            Classic Minute-Maid Fruit Punch
+         </div>
+      </div>
+      <!-- Item ends -->
+      <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+             <input type="submit" name="Lemonade""value="Lemonade"></input>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            Our homemade lemonade. Made with real lemons!
+         </div>
+      </div>
+      <!-- Item ends -->
+   </div>
+   <!-- Section ends: Drinks -->
+    </div>
+
 
 
 
 
 <button type="submit" class="btn btn-success" >Checkout</button>
-</form>
 
-         </div>
-        </div>
-        </div>
-</div>
+
+
 
 
 
 </html>
-

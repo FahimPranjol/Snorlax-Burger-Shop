@@ -13,20 +13,13 @@ class Menu(object):
         self._id = uuid.uuid4().hex if _id is None else _id
 
 
-    def json(self):
-        return {
 
-            'Item': self.Item,
-            'price': self.price,
-            '_id': self._id
-        }
 
     @classmethod
     def get_by_item(cls, item):
 
-        item_name = Database.find_one("Menu", {"Item": item})
-        if item_name is not None:
-            return cls(**item_name)
+        item_name = Database.find_one("Menu", query={"Item": item})
+        return cls(**item_name)
 
     @staticmethod
     def item_valid(item):
@@ -40,10 +33,23 @@ class Menu(object):
 
 
 
-    @staticmethod
-    def menu(item):
+    @classmethod
+    def item_add(cls,name, price):
         # login_valid has already been called
-        session['Item'] = item
+        new_item = cls(name, price)
+        new_item.save_to_mongo()
+
+
+    def json(self):
+        return{
+
+            "Item":self.Item,
+            "price":self.price
+
+        }
+
+    def save_to_mongo(self):
+        Database.insert("order",self.json())
 
 
 
