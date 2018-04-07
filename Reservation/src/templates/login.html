@@ -10,15 +10,15 @@
 <center>
 <div class="container page-form">
 
-    <form id="login-form" action="/login" method="post">
+    <form id="login-form" name="login-form" action="/login" method="post">
         <div class="form-group">
             <label for="email">Email : </label>
-            <input type="text" id="email" size="45" class="form-control" name="email">
+            <input type="text" id="email" size="45" class="form-control" name="email"> <span class="error"><p id="emailError"></p></span>
         </div>
         <br>
         <div class="form-group">
             <label for="password">Password : </label>
-            <input type="password" id="password" size="45" class="form-control" name="password">
+            <input type="password" id="password" size="45" class="form-control" name="password"> <span class="error"><p id="passError"></p></span>
         </div>
         <br>
         <button type="submit" class="btn btn-success">Log in</button>
@@ -33,5 +33,42 @@
         <button type="submit" class="btn btn-success">Continue as guest</button>
     </form>
 </div>
+
+<script>
+document.getElementById("login-form").onsubmit = function()
+{
+	var printEmail = document.forms["login-form"]["email"].value;
+	var printPass = document.forms["login-form"]["password"].value;
+	
+	var click = true;
+	
+	if(printEmail == null || printEmail == "")
+	{
+		var str = "Please enter email";
+		var printEmailError = str.fontcolor("red");
+		document.getElementById("emailError").innerHTML = printEmailError;
+		click = false
+	}
+	
+	if(printPass == null || printPass == "")
+	{
+	    var passStr = "Please enter Password";
+		printPassError = passStr.fontcolor("red");
+		document.getElementById("passError").innerHTML = printPassError;
+		click = false
+	}
+	
+	return click;
+}
+function remove()
+{
+	document.getElementById(this.id + "_error").innerHTML = "";
+}
+
+document.getElementById("email").onkeyup = remove;
+document.getElementById("password").onkeyup = remove;
+
+</script>
+
 </center>
 {% endblock %}

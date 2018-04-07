@@ -9,18 +9,21 @@
                     </h1>
             <br>
 
-
-                <p>Rewards: 0</p>
                 <font color="#990000"> </font>
                     <form action="/logout", method="post">
                     <button type="submit" class="btn btn-success">Log Out</button>
                     </form>
                     <br>
-                    <form action="/games">
-                    <button type="submit" class="btn btn-success">Games</button>
-                    </form>
+                    <button type="button">Games</button>
                     <input type="button" value="Refill">
-                    <button type="button">Help</button>
+
+                    <form action="\help" method="post">
+                        <button type="submit" class="btn btn-success">Help</button>
+                    </form>
+                    <form action="\reward" method="post">
+                        <button type="submit" class="btn btn-success">Reward</button>
+                    </form>
+
                     <br>
                     <form action="/menu">
                     <button type="submit" class="btn btn-success">Menu</button>
