@@ -1,6 +1,53 @@
 <html>
 
 <style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right"><a href="#about">About</a></li>
+</ul>
+
+
+
+
+<style>
     .menu-body {
   max-width: 680px;
   margin: 0 auto;
@@ -82,7 +129,9 @@
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
-            <input type="submit" name="Snorlax Triple"value="Snorlax Triple"></input>
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Snorlax Triple"></input>
+            </form>
          </div>
          <div class="menu-item-price">
             $12.00
@@ -90,12 +139,16 @@
          <div class="menu-item-description">
             Traditional Snorlax Burger with TRIPLE the beef!
          </div>
+
       </div>
+
       <!-- Item ends -->
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
-            <input type="submit" name="Chicken Strips"value="Chicken Strips"></input>
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1" value="Chicken Strips"></input>
+            </form>
          </div>
          <div class="menu-item-price">
             $4.00
@@ -166,15 +219,5 @@
    <!-- Section ends: Drinks -->
     </div>
 
-
-
-
-
-<button type="submit" class="btn btn-success" >Checkout</button>
-
-
-
-
-
-
 </html>
+
