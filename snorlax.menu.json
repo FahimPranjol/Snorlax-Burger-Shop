@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5ac95f9010ee1c3c23481e54"},"price":"10.99","description":"The BURGER!!! Some more description to ensure everything works here as well","ingredients":"Beef, Lettuce, Tomato, Onion, Mayo, Jalapenos, Grilled Onions","calories":"1000","name":"The Burger"}
+{"_id":{"$oid":"5ac98f1210ee1c4f686455da"},"name":"Fries","ingredients":"Potatoes","price":"2.20","description":"Finger Licking Good","calories":"200"}
+{"_id":{"$oid":"5aca7ebe10ee1c51534cc197"},"price":"6.99","name":"Garden Salad","ingredients":"Lettuce, Croutons, Cherry Tomatoes, Olives, Cranberry","calories":"150","description":"Side or Full Garden Salad"}

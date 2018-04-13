@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5ac9791b10ee1c487fa5ed8e"},"lastname":"Staff","id":"S0001","tables":[{"04/07/2018":"1,2,3,4"},{"04/08/2018":"5,6,7,8"},{"10/28/1994":"1,2,3,4"}],"firstname":"Named"}
+{"_id":{"$oid":"5ac987c310ee1c4c738c4eae"},"lastname":"User","tables":[{"04/08/2018":"3,4,9,8"}],"firstname":"Test","id":"S0002"}
