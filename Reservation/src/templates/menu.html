@@ -1,62 +1,22 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <style>
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
 
-li {
-    float: left;
-    border-right:1px solid #bbb;
-}
-
-li:last-child {
-    border-right: none;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-    background-color: #4CAF50;
-}
-</style>
-</head>
-<body>
-
-<ul>
-  <li><a class="active" href="">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li style="float:right"><a href="#about">About</a></li>
-</ul>
-
-
-
-
-<style>
     .menu-body {
   max-width: 680px;
   margin: 0 auto;
   display: block;
   color: rgb(92, 92, 92);
 }
+
 .menu-section {
   margin-bottom: 80px;
 }
+
+input[type=submit] {
+    width: 15em;  height: 2em;
+}
+
 .menu-section-title {
   font-family: georgia;
   font-size: 50px;
@@ -65,58 +25,65 @@ li a:hover:not(.active) {
   margin: 20px 0;
   text-align: Center;
 }
+
 .menu-item {
   margin: 35px 0;
   font-size: 18px;
 }
+
 .menu-item-name{
   font-family: helvetica;
   font-weight: bold;
   border-bottom: 2px dotted rgb(213, 213, 213);
 }
+
 .menu-item-description {
   font-style: italic;
   font-size: .9em;
   line-height: 1.5em;
 }
+
 .menu-item-price{
   float: right;
   font-weight: bold;
   font-family: arial;
   margin-top: -22px;
 }
+
+
+
+
 </style>
 
 
 <div class="menu-body">
-   <!-- Section starts: Appetizers -->
+   <!-- Section starts: Entrees -->
    <div class="menu-section">
-      <h2 class="menu-section-title">MAIN COURSE</h2>
+      <h2 class="menu-section-title">ENTREES</h2>
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
              <form action="/menu/cart" method="get">
-             <input type="submit" name="item1" value="Burger"></input>
-
-                 </div>
-
-                 <div class="menu-item-price">
-                    $7.00
-                </div>
-
-      <div class="menu-item-description">
+             <input type="submit" name="item1"value="Snorlax Traditional Burger"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $7.00
+         </div>
+         <div class="menu-item-description">
             Our traditional burger with a beef patty and all the fixings. Letuuce, onions, tomatoes, pickles, mustard, mayo, ketchup, and
              our signature Snorlax Sauce. Calories 490.
          </div>
-           </form>
+
+      </div>
 
       <!-- Item ends -->
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
-            <form action="/menu/cart" method="get">
-             <input type="submit" name="item1"value="Snorlax Burger"></input>
-            </form>
+                <form action="/menu/cart" method="get">
+             <input type="submit" name="item1"value="Snorlax Double"></input>
+                   </form>
          </div>
          <div class="menu-item-price">
             $9.00
@@ -124,20 +91,22 @@ li a:hover:not(.active) {
          <div class="menu-item-description">
             Everything you get in a traditional Snorlax Burger but with the double the beef. Calories 700.
          </div>
+
       </div>
+
       <!-- Item ends -->
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
-            <form action="/menu/cart" method="get">
+             <form action="/menu/cart" method="get">
             <input type="submit" name="item1"value="Snorlax Triple"></input>
-            </form>
+                 </form>
          </div>
          <div class="menu-item-price">
             $12.00
          </div>
          <div class="menu-item-description">
-            Traditional Snorlax Burger with TRIPLE the beef!
+            Traditional Snorlax Burger with TRIPLE the beef! Calories: 1200
          </div>
 
       </div>
@@ -146,77 +115,342 @@ li a:hover:not(.active) {
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
-            <form action="/menu/cart" method="get">
-            <input type="submit" name="item1" value="Chicken Strips"></input>
-            </form>
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Chicken Strips"></input>
+                </form>
          </div>
          <div class="menu-item-price">
             $4.00
          </div>
          <div class="menu-item-description">
-            6 Premium Tenders. Served with a side of fries.
+            6 Premium Tenders. Served with a side of fries. Calories: 500
+         </div>
+
+      </div>
+
+   <!--Item ends-->
+   <!--Item stars-->
+	  <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Caesar Salad"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $3.00
+         </div>
+         <div class="menu-item-description">
+            Our traditional Caesar Salad! Calories: 150
          </div>
       </div>
       <!-- Item ends -->
    </div>
-   <!-- Section ends: Appetizers -->
+   <!-- Section ends: Entrees-->
+   <!-- Section starts: Appetizers -->
+   <div class="menu-section">
+      <h2 class="menu-section-title">APPETIZERS</h2>
+	  <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Cheese Sticks"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $5.00
+         </div>
+         <div class="menu-item-description">
+            8 fresh monzzarella cheese sticks made with real monzzarella cheese! Calories: 400
+         </div>
+		 <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Hot Wings"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $6.00
+         </div>
+         <div class="menu-item-description">
+            10 buffalo wings made to serve the whole table! Comes with your choice of ranch or blue cheese dip. Calories: 500
+         </div>
+		 <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Nachos"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $4.00
+         </div>
+         <div class="menu-item-description">
+            Fresh nachos topped with our spicy queso, premium beef, pico, and sour cream. Calories: 700
+         </div>
+		 <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Mini Snorlax Sliders"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $5.00
+         </div>
+         <div class="menu-item-description">
+            Our traditional Snorlax Burgers...but mini! 8 sliders total. Calories: 600
+         </div>
+		 <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Beef Soup"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $3.00
+         </div>
+         <div class="menu-item-description">
+            A bowl or cup of our hardy beef soup! Calories: 500
+         </div>
+	  </div>
+	  <!-- Section ends: Appetizers-->
+	   <!-- Section starts: Sides -->
+   <div class="menu-section">
+      <h2 class="menu-section-title">SIDES</h2>
+      <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Mashed Potatoes"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            Rich mashed potatoes served with brown gravy. Calories: 400
+         </div>
+		 <!-- Item ends -->
+		 <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Mac and Cheese"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            Our homemade mac and cheese made fresh! Calories: 300
+         </div>
+		 <!-- Item ends -->
+		 <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Green Beans"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            Freshly made green beans. Calories: 200
+         </div>
+		 <!-- Item ends -->
+		  <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Baked Potato"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            Baked potato topped with your choices out of butter, chives, bacon, cheese, and sour cream. Calories: 400
+         </div>
+		 <!-- Item ends -->
+		  <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+           <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Fries"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $2.00
+         </div>
+         <div class="menu-item-description">
+            Our signature Snorlax Fries seasoned with our very own Snorlax Seasoning. Calories: 400
+         </div>
+		 <!-- Item ends -->
+      </div>
+      
+	  <!-- Section ends: Sides -->
    <!-- Section starts: Drinks -->
    <div class="menu-section">
       <h2 class="menu-section-title">DRINKS</h2>
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
-            <input type="submit" name="Sprite" value="Sprite"></input>
+            <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Sprite"></input>
+                </form>
          </div>
          <div class="menu-item-price">
             $1.00
          </div>
          <div class="menu-item-description">
-            Crisp Sprite!
+            Crisp Sprite! Calories: 100
          </div>
       </div>
       <!-- Item ends -->
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
-             <input type="submit" name="Coke"value="Coke"></input>
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Coke"></input>
+                </form>
          </div>
          <div class="menu-item-price">
             $1.00
          </div>
          <div class="menu-item-description">
-            Classic Coca-Cola!
+            Classic Coca-Cola! Calories: 100
          </div>
       </div>
       <!-- Item ends -->
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
-             <input type="submit" name="Fruit Punch"value="Fruit Punch"></input>
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Fruit Punch"></input>
+                </form>
          </div>
          <div class="menu-item-price">
             $1.00
          </div>
          <div class="menu-item-description">
-            Classic Minute-Maid Fruit Punch
+            Classic Minute-Maid Fruit Punch. Calories: 100
          </div>
       </div>
       <!-- Item ends -->
       <!-- Item starts -->
       <div class="menu-item">
          <div class="menu-item-name">
-             <input type="submit" name="Lemonade""value="Lemonade"></input>
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Lemonade"></input>
+                </form>
          </div>
          <div class="menu-item-price">
             $1.00
          </div>
          <div class="menu-item-description">
-            Our homemade lemonade. Made with real lemons!
+            Our homemade lemonade. Made with real lemons! Calories: 100
+         </div>
+      </div>
+      <!-- Item ends -->
+	  <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Water"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            Chilled ice water. Served with lemon. Calories: ?
          </div>
       </div>
       <!-- Item ends -->
    </div>
    <!-- Section ends: Drinks -->
-    </div>
+	 <!-- Section starts: Desserts -->
+   <div class="menu-section">
+      <h2 class="menu-section-title">DESSERTS</h2>
+	   <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Cheesecake"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $2.00
+         </div>
+         <div class="menu-item-description">
+            New York Style Cheesecake served with strawberry sauce and whipped cream. Calories: 300
+         </div>
+      </div>
+      <!-- Item ends -->
+	   <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Ice Cream"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $1.00
+         </div>
+         <div class="menu-item-description">
+            3 scoops of your choice of vanilla, chocolate, or strawberry ice cream! Calories: 500
+         </div>
+      </div>
+      <!-- Item ends -->
+	   <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Apple Pie"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $3.00
+         </div>
+         <div class="menu-item-description">
+            Fresh and hot apple pie served with one scoop of vanilla ice cream! Calories: 400
+         </div>
+      </div>
+      <!-- Item ends -->
+	   <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Chocolate Cake"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $2.00
+         </div>
+         <div class="menu-item-description">
+            One slice of our special chocolate cake! Calories: 500
+         </div>
+      </div>
+      <!-- Item ends -->
+	   <!-- Item starts -->
+      <div class="menu-item">
+         <div class="menu-item-name">
+             <form action="/menu/cart" method="get">
+            <input type="submit" name="item1"value="Vanilla Cake"></input>
+                </form>
+         </div>
+         <div class="menu-item-price">
+            $2.00
+         </div>
+         <div class="menu-item-description">
+            One slice of our special vanilla cake! Calories: 500
+         </div>
+      </div>
+      <!-- Item ends -->
+	  </div>
+	  <!-- Section ends: Desserts-->
+<button type="submit" class="btn btn-success" >Checkout</button>
+      </div>
+
+
+
 
 </html>
