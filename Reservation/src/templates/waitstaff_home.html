@@ -1,57 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <style>
-* {
-    box-sizing: border-box;
-}
+<!doctype html>
+<html>
+  <head>
+		<meta charset= "UTF-8">
+		<title>Employee Login</title>
+	</head>
+	<body>
+    <form action="waitstaff/profile">
+		<h1 align="center">Snorlax Burger Employee Login</h1>
+		<form method="get" enctype="application/x-www-form-urlencoded" action="/html/codes/html_form_handler.cfm">
+		<p align="center">
+			<label>Username:
+			<input type="text" name="waitstaff_name" required>
+			</label>
+		</p>
+		<p align="center">
+			<label >Password:
+			<input align="center" type="text" name="waitstaff_pass" required>
+			</label>
+		</p>
+            <form action="/waitstaff/profile">
+		<p align="center"><button type="submit" class="btn btn-success">Login</button></p>
+                </form>
+		</form>
+        </form>
+	</body>
 
-/* Create 4 equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 25%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-</style>
-</head>
-
-
-<h1 align="center"> <img src="https://raw.githubusercontent.com/FahimPranjol/Snorlax-Burger-Shop/master/big_snorlax_burger_by_cathto.jpg"
-                 alt="Snorlax Burger" width="128" height="100"> Snorlax Burger Waitstaff Home
-</h1>
-<h2 align="center"> Tables</h2>
-
-<div class="row">
-  <div class="column">
-      <input type="button" value="Table 1">
-    <p>Orders:</p>
-  </div>
-  <div class="column">
-      <input type="button" value="Table 2">
-    <p>Orders:</p>
-  </div>
-    <div class="column">
-        <input type="button" value="Table 3">
-    <p>Orders:</p>
-  </div>
-  <div class="column">
-      <input type="button" value="Table 4">
-    <p>Orders:</p>
-  </div>
-</div>
-<center>
-<button type="button">Log Out</button>
-</center>
-
-
-</body>
 </html>

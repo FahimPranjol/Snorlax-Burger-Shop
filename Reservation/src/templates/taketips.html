@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+{% block content %}
+
+    <center>
+        <form action="/checkout" method="get">
+        <label for="tips">Add tips : </label>
+        <input type="number" id="tips" size="45" class="form-control" name="tips">
+
+            <br>
+            <br>
+            <input type="submit" value="Enter" name="enter">
+        </form>
+
+    </center>
+
+
+{% endblock %}

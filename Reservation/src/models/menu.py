@@ -4,7 +4,7 @@ from flask import session
 
 from src.common.database import Database
 
-#declaring item and price
+
 class Menu(object):
     def __init__(self, Item, price, _id=None):
 
@@ -12,24 +12,15 @@ class Menu(object):
         self.price = price
         self._id = uuid.uuid4().hex if _id is None else _id
 
-    #storing the information as json in database
-    def json(self):
-        return {
 
-            'Item': self.Item,
-            'price': self.price,
-            '_id': self._id
-        }
 
-    #getting the information of the item by name
+
     @classmethod
     def get_by_item(cls, item):
 
-        item_name = Database.find_one("Menu", {"Item": item})
-        if item_name is not None:
-            return cls(**item_name)
+        item_name = Database.find_one("Menu", query={"Item": item})
+        return cls(**item_name)
 
-    #checking if there is any item the database
     @staticmethod
     def item_valid(item):
         item_name = Menu.get_by_item(item)
@@ -42,10 +33,34 @@ class Menu(object):
 
 
 
-    @staticmethod
-    def menu(item):
+    @classmethod
+    def item_add(cls,name, price):
         # login_valid has already been called
-        session['Item'] = item
+        new_item = cls(name, price)
+        new_item.save_to_mongo()
+        new_item.save_to_kstaff()
+        new_item.save_to_waitstaff()
+
+
+
+    def json(self):
+        return{
+
+            "Item":self.Item,
+            "price":self.price,
+
+        }
+
+    def save_to_mongo(self):
+        Database.insert("order",self.json())
+
+
+    def save_to_kstaff(self):
+        Database.insert("kstaff_orders",self.json())
+
+
+    def save_to_waitstaff(self):
+        Database.insert("waitstaff__orders",self.json())
 
 
 

@@ -16,9 +16,16 @@ class Database(object):
     def insert(collection, data):
         Database.DATABASE[collection].insert(data)
 
+
     @staticmethod
-    def find(collection, query):
-        return Database.DATABASE[collection].find(query)
+    def delete(collection):
+        Database.DATABASE[collection].remove({})
+
+
+
+    @staticmethod
+    def find(collection):
+        return Database.DATABASE[collection].find({})
 
     @staticmethod
     def find_one(collection, query):

@@ -10,12 +10,14 @@
             <br>
 
                 <font color="#990000"> </font>
-                    <form action="/logout", method="post">
+                    <form action="/logout" method="post">
                     <button type="submit" class="btn btn-success">Log Out</button>
                     </form>
                     <br>
-                    <button type="button">Games</button>
+                    <form action="/games">
+                    <button type="submit">Games</button>
                     <input type="button" value="Refill">
+                    </form>
 
                     <form action="\help" method="post">
                         <button type="submit" class="btn btn-success">Help</button>
@@ -40,12 +42,9 @@
                     <p id="Refill"></p>
         </center>
         <script>
-
         var btn = document.querySelector('input');
         var txt = document.querySelector('p');
-
         btn.addEventListener('click', updateBtn);
-
         function updateBtn() {
             if (btn.value === 'Refill') {
                 btn.value = 'Click if Refilled';

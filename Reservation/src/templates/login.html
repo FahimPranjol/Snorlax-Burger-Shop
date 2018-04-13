@@ -39,35 +39,33 @@ document.getElementById("login-form").onsubmit = function()
 {
 	var printEmail = document.forms["login-form"]["email"].value;
 	var printPass = document.forms["login-form"]["password"].value;
-	
+
 	var click = true;
-	
+
 	if(printEmail == null || printEmail == "")
 	{
-		var str = "Please enter email";
+		var str = "Invalid Email";
 		var printEmailError = str.fontcolor("red");
 		document.getElementById("emailError").innerHTML = printEmailError;
 		click = false
 	}
-	
+
 	if(printPass == null || printPass == "")
 	{
-	    var passStr = "Please enter Password";
+	    var passStr = "Invalid Password";
 		printPassError = passStr.fontcolor("red");
 		document.getElementById("passError").innerHTML = printPassError;
 		click = false
 	}
-	
+
 	return click;
 }
 function remove()
 {
 	document.getElementById(this.id + "_error").innerHTML = "";
 }
-
 document.getElementById("email").onkeyup = remove;
 document.getElementById("password").onkeyup = remove;
-
 </script>
 
 </center>

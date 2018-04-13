@@ -1,0 +1,41 @@
+{% extends "home.html" %}
+{% block content %}
+    <style>
+* {
+    box-sizing: border-box;
+}
+/* Create 4 equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+
+
+<center>
+<h1 align="center"> <img src="https://raw.githubusercontent.com/FahimPranjol/Snorlax-Burger-Shop/master/big_snorlax_burger_by_cathto.jpg"
+                 alt="Snorlax Burger" width="128" height="100"> Snorlax Burger Waitstaff Home
+</h1>
+<h2 align="center"> Tables</h2>
+
+
+    <p>Orders:</p>
+      {% for d in items %}
+      <p>Items: {{ d.Item }}</p>
+      {% endfor %}
+
+    </center>
+<center>
+<button type="button">Log Out</button>
+</center>
+
+
+{% endblock %}
