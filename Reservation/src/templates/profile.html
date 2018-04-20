@@ -1,5 +1,16 @@
 {% extends "home.html" %}
 {% block content %}
+
+<style>
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+
+</style>
+<div class="topright">Table no: {{ table_no }}<br>Date: {{ time }}<br>Table name: {{ table_name }}</div>
+</div>
         <center>
 
                 <img src="https://github.com/FahimPranjol/Snorlax-Burger-Shop/blob/master/welc.png?raw=true"
@@ -37,6 +48,7 @@
                     <form action="/about">
                     <button type="submit" class="bn btn-success">About</button>
                     </form>
+
                         <br>
 
                     <p id="Refill"></p>

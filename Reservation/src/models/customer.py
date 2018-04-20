@@ -10,6 +10,7 @@ class Customer(object):
     def __init__(self, email, password, _id=None):
         self.email = email
         self.password = password
+
         self._id = uuid.uuid4().hex if _id is None else _id
 
     #getting customer by email
@@ -30,6 +31,7 @@ class Customer(object):
     def login_valid(email, password):
         # Check whether a user's email matches the password they sent us
         customer = Customer.get_by_email(email)
+
         if customer is not None:
             # Check the password
             return customer.password == password
@@ -67,11 +69,14 @@ class Customer(object):
     def json(self):
         return {
             "email": self.email,
-            "password": self.password
+            "password": self.password,
+
         }
 
     #saving information to the database
     def save_to_mongo(self):
         Database.insert("customers", self.json())
+
+
 
 

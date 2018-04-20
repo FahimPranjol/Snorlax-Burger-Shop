@@ -1,22 +1,18 @@
 <html xmlns="http://www.w3.org/1999/html">
 
 <style>
-
     .menu-body {
   max-width: 680px;
   margin: 0 auto;
   display: block;
   color: rgb(92, 92, 92);
 }
-
 .menu-section {
   margin-bottom: 80px;
 }
-
 input[type=submit] {
     width: 15em;  height: 2em;
 }
-
 .menu-section-title {
   font-family: georgia;
   font-size: 50px;
@@ -25,34 +21,26 @@ input[type=submit] {
   margin: 20px 0;
   text-align: Center;
 }
-
 .menu-item {
   margin: 35px 0;
   font-size: 18px;
 }
-
 .menu-item-name{
   font-family: helvetica;
   font-weight: bold;
   border-bottom: 2px dotted rgb(213, 213, 213);
 }
-
 .menu-item-description {
   font-style: italic;
   font-size: .9em;
   line-height: 1.5em;
 }
-
 .menu-item-price{
   float: right;
   font-weight: bold;
   font-family: arial;
   margin-top: -22px;
 }
-
-
-
-
 </style>
 
 
@@ -285,7 +273,7 @@ input[type=submit] {
          </div>
 		 <!-- Item ends -->
       </div>
-      
+
 	  <!-- Section ends: Sides -->
    <!-- Section starts: Drinks -->
    <div class="menu-section">
@@ -447,8 +435,14 @@ input[type=submit] {
       <!-- Item ends -->
 	  </div>
 	  <!-- Section ends: Desserts-->
-<button type="submit" class="btn btn-success" >Checkout</button>
+<button type="submit" onClick="goBack()" >Back</button>
       </div>
+
+         <script>
+function goBack() {
+    window.history.go(-1);
+}
+</script>
 
 
 

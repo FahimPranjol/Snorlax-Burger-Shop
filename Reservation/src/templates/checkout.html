@@ -39,7 +39,7 @@ span.price {
     <div class="container">
       <h4>Cart <span class="price" style="color:black"></span></h4>
       {% for d in items %}
-      <p>{{ d.Item }} <span class="price">${{ d.price }}</span></p>
+      <p>{{ d.item }} <span class="price">${{ d.price }}</span></p>
       {% endfor %}
       <p>Tax<span class="price">${{ tax }}</span></p>
         <p>Tips<span class="price">${{ tips }}</span></p>
@@ -50,7 +50,9 @@ span.price {
 
 <center>
 
-
+    <form action="/coupon">
+        <button type="submit" class="btn btn-success">Enter coupon</button>
+    </form>
     <form action="receipt">
         <button type="submit" value="Pay by cash">Pay by cash</button>
         <button type="submit" value="Pay by card">Pay by Card</button>

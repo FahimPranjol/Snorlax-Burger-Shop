@@ -1,12 +1,21 @@
 {% extends "home.html" %}
 {% block content %}
 
+
+
     <p align="center">Thank you</p>
 
     <br>
     <br>
 
-        <button type="submit"><a></a> HOME</button>
+<center>
 
+       <button onclick="goBack()">Home</button>
+    </center>
+<script>
+function goBack() {
+    window.history.go(-7);
+}
+</script>
 
 {% endblock %}

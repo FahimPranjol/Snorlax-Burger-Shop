@@ -2,12 +2,15 @@ from flask import Flask, render_template, request, session, flash
 
 
 from src.common.database import Database
+from src.models.Tables import Tables
 from src.models.customer import Customer
 from src.models.menu import Menu
 from src.models.reserve import Info
 
 
 #Initializing the application
+from src.models.table_orders import Table_order
+
 app = Flask(__name__)
 app.secret_key ="fahim"
 
@@ -16,8 +19,34 @@ app.secret_key ="fahim"
 #Routing to the main page of the customer
 @app.route('/')#
 def home_method():
-    return render_template('login.html')
+    return render_template('customerPage_afterLogin.html')
 
+
+
+
+
+
+#Before requesting from the database inttializing the database
+@app.before_first_request
+def initialize_database():
+    Database.initialize()
+
+
+@app.route('/customer_login', methods=['GET'])#
+def customer_login():
+
+    table_no = request.args.get('table_no')
+    table_name = request.args.get('table_name')
+
+    table = Tables(table_no= table_no,
+                   table_name=table_name,
+                   user_email="none",
+                   coupon="No coupons")
+
+    table.save_to_mongo()
+
+
+    return render_template('login.html', table_no = table_no)
 
 #Getting the about page
 @app.route('/about')
@@ -40,14 +69,6 @@ def game():
     return render_template("2_games.html")
 
 
-
-#Before requesting from the database inttializing the database
-@app.before_first_request
-def initialize_database():
-    Database.initialize()
-
-
-
 @app.route('/help', methods=['POST'])# www.mysite.com/API/
 def help_customer():
     return render_template("help.html")
@@ -55,21 +76,49 @@ def help_customer():
 
 
 #Validating the login username and password
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST' ,'GET'])
 def login_user():
 
     #Getting the email and password from the page
     email = request.form['email']
     password = request.form['password']
 
+
     #checking if the customer is registered
     if Customer.login_valid(email, password):
-        Customer.login(email)#if registered login sucessfull
+        Customer.login(email)  #if registered login sucessfull
     else:
 
         return render_template("login.html")
 
-    return render_template("profile.html", email=session['email'])#returning the home page when the login is sucessfull
+    Database.update_one("tables",{'user_email':"none"}, {"$set":{'user_email':email}})
+
+    date=Database.find('tables')
+
+    for day in date:
+        time=day['created_date']
+        table_no=day['table_no']
+        table_name=day['table_name']
+
+
+
+        time = time.weekday()
+
+
+
+        if (time==3):
+         today="Thursday"
+        elif (time==4):
+            today="Friday"
+
+
+    return render_template("profile.html", email=session['email'],table_no=table_no, time=today, table_name=table_name)#returning the home page when the login is sucessfull
+
+
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
 
 
 
@@ -89,16 +138,132 @@ def checkout(): #method to access the input
     name = request.args.get('item1')
     tips = request.args.get('tips')
 
-    print (tips)
     menu = Database.find_one("Menu",{'Item':name})
 
     dam = menu['price']
 
     Menu.item_add(name, dam)
 
+    table = Database.find("tables")
+
+    for numbers in table:
+        tableNo = numbers['table_no']
+        tableName = numbers['table_name']
+        userEmail = numbers['user_email']
 
 
-    i = Database.find("order")
+
+    table_order = Table_order(table_no=tableNo,
+                              table_name=tableName,
+                              user_email = userEmail,
+                              order_status = "no order",
+                              item=name,
+                              price=dam
+
+                              )
+
+    if(tableNo == "Table 1"):
+     table_order.save_to_table1()
+
+    elif(tableNo == "Table 2"):
+     table_order.save_to_table2()
+
+    elif(tableNo == "Table 3"):
+     table_order.save_to_table3()
+
+    elif(tableNo == "Table 4"):
+     table_order.save_to_table4()
+
+    elif(tableNo == "Table 5"):
+     table_order.save_to_table5()
+
+    elif(tableNo == "Table 6"):
+     table_order.save_to_table6()
+
+    elif(tableNo == "Table 7"):
+     table_order.save_to_table7()
+
+    elif(tableNo == "Table 8"):
+     table_order.save_to_table8()
+
+    elif(tableNo == "Table 9"):
+     table_order.save_to_table9()
+
+    elif(tableNo == "Table 10"):
+     table_order.save_to_table10()
+
+    elif(tableNo == "Table 11"):
+     table_order.save_to_table11()
+
+    elif(tableNo == "Table 12"):
+     table_order.save_to_table12()
+
+    elif(tableNo == "Table 13"):
+     table_order.save_to_table13()
+
+    elif(tableNo == "Table 14"):
+     table_order.save_to_table14()
+
+    elif(tableNo == "Table 15"):
+     table_order.save_to_table15()
+
+    elif(tableNo == "Table 16"):
+     table_order.save_to_table16()
+
+    table_order.save_to_waitstaff_page()
+
+
+    if(tableNo == "Table 1"):
+     i = Database.find("table1_orders")
+
+    elif(tableNo == "Table 2"):
+     i = Database.find("table2_orders")
+
+    elif(tableNo == "Table 3"):
+     i = Database.find("table3_orders")
+
+    elif(tableNo == "Table 4"):
+     i = Database.find("table4_orders")
+
+    elif(tableNo == "Table 5"):
+     i = Database.find("table5_orders")
+
+    elif(tableNo == "Table 6"):
+     i = Database.find("table6_orders")
+
+    elif(tableNo == "Table 7"):
+     i = Database.find("table7_orders")
+
+    elif(tableNo == "Table 8"):
+     i = Database.find("table8_orders")
+
+    elif(tableNo == "Table 9"):
+     i = Database.find("table9_orders")
+
+    elif(tableNo == "Table 10"):
+     i = Database.find("table10_orders")
+
+    elif(tableNo == "Table 11"):
+     i = Database.find("table11_orders")
+
+    elif(tableNo == "Table 12"):
+     i = Database.find("table12_orders")
+
+    elif(tableNo == "Table 13"):
+     i = Database.find("table13_orders")
+
+    elif(tableNo == "Table 14"):
+     i = Database.find("table14_orders")
+
+    elif(tableNo == "Table 15"):
+     i = Database.find("table15_orders")
+
+    elif(tableNo == "Table 16"):
+     i = Database.find("table16_orders")
+
+
+
+
 
     count = 0
     price = 0
@@ -107,8 +272,54 @@ def checkout(): #method to access the input
 
 
 
+    if(tableNo == "Table 1"):
+        items = Database.find("table1_orders")
 
-    items = Database.find("order")
+    elif(tableNo == "Table 2"):
+        items = Database.find("table2_orders")
+
+    elif(tableNo == "Table 3"):
+        items = Database.find("table3_orders")
+
+    elif(tableNo == "Table 4"):
+        items = Database.find("table4_orders")
+
+    elif(tableNo == "Table 5"):
+        items = Database.find("table5_orders")
+
+    elif(tableNo == "Table 6"):
+        items = Database.find("table6_orders")
+
+    elif(tableNo == "Table 7"):
+        items = Database.find("table7_orders")
+
+    elif(tableNo == "Table 8"):
+        items = Database.find("table8_orders")
+
+    elif(tableNo == "Table 9"):
+        items = Database.find("table9_orders")
+
+    elif(tableNo == "Table 10"):
+        items = Database.find("table10_orders")
+
+    elif(tableNo == "Table 11"):
+        items = Database.find("table11_orders")
+
+    elif(tableNo == "Table 12"):
+        items = Database.find("table12_orders")
+
+    elif(tableNo == "Table 13"):
+        items = Database.find("table13_orders")
+
+    elif(tableNo == "Table 14"):
+        items = Database.find("table14_orders")
+
+    elif(tableNo == "Table 15"):
+        items = Database.find("table15_orders")
+
+    elif(tableNo == "Table 16"):
+        items = Database.find("table16_orders")
+
 
 
     return render_template('cart.html', name=name, price=dam, total=price, item=items)
@@ -120,6 +331,13 @@ def checkout(): #method to access the input
 def guest():
 
     return render_template('guest.html')
+
+
+@app.route('/coupon')
+def coupon():
+
+    return render_template('coupon.html')
+
 
 @app.route('/kstaff')
 def kitchen_staff():
@@ -137,12 +355,67 @@ def receipt():
     return render_template('receipt.html')
 
 
-@app.route('/waitstaff/profile')
-def waitstaff_profile():
+@app.route('/waitstaff/tables')
+def waitstaff_tables():
 
-     items = Database.find("waitstaff__orders")
 
-     return render_template('waitstaff_2ndPage.html', items=items)
+
+
+
+    return render_template('waitstaff_2ndPage.html')
+
+
+@app.route('/waitstaff/orders/table1')
+def waitstaff_orders_table1():
+
+    table_no=request.args.get('table1')
+
+
+    items1 = Database.find("table1_orders")
+
+    for item1 in items1:
+         table_no = item1['table_no']
+         order_status=item1['order_status']
+         table_name=item1['table_name']
+         user_email=item1['user_email']
+
+
+         items = Database.find("table1_orders")
+
+
+
+    return render_template('waitstaff_orders_table1.html', items=items, table_no=table_no, order_status= order_status)
+
+
+
+
+@app.route('/waitstaff/orders/table2')
+def waitstaff_orders_table2():
+
+    table_no=request.args.get('table2')
+
+
+    items1 = Database.find("table2_orders")
+    items2 = Database.find("table2_orders")
+
+    if items2 is not None:
+        for item1 in items1:
+         table_no = item1['table_no']
+         table_name=item1['table_name']
+         user_email=item1['user_email']
+        for item1 in items1:
+         order_status=item1['order_status']
+
+    else:
+        items2="None"
+        table_no="None"
+        order_status="None"
+
+
+
+
+
+    return render_template('waitstaff_orders_table2.html', items=items2, table_no=table_no, order_status=order_status)
 
 
 
@@ -158,7 +431,62 @@ def kitchen_staff_orders():
 @app.route('/checkout')
 def check():
 
-    i = Database.find("order")
+    table = Database.find("tables")
+
+    for numbers in table:
+        tableNo = numbers['table_no']
+
+
+    if(tableNo == "Table 1"):
+     i = Database.find("table1_orders")
+
+    elif(tableNo == "Table 2"):
+     i = Database.find("table2_orders")
+
+    elif(tableNo == "Table 3"):
+     i = Database.find("table3_orders")
+
+    elif(tableNo == "Table 4"):
+     i = Database.find("table4_orders")
+
+    elif(tableNo == "Table 5"):
+     i = Database.find("table5_orders")
+
+    elif(tableNo == "Table 6"):
+     i = Database.find("table6_orders")
+
+    elif(tableNo == "Table 7"):
+     i = Database.find("table7_orders")
+
+    elif(tableNo == "Table 8"):
+     i = Database.find("table8_orders")
+
+    elif(tableNo == "Table 9"):
+     i = Database.find("table9_orders")
+
+    elif(tableNo == "Table 10"):
+     i = Database.find("table10_orders")
+
+    elif(tableNo == "Table 11"):
+     i = Database.find("table11_orders")
+
+    elif(tableNo == "Table 12"):
+     i = Database.find("table12_orders")
+
+    elif(tableNo == "Table 13"):
+     i = Database.find("table13_orders")
+
+    elif(tableNo == "Table 14"):
+     i = Database.find("table14_orders")
+
+    elif(tableNo == "Table 15"):
+     i = Database.find("table15_orders")
+
+    elif(tableNo == "Table 16"):
+     i = Database.find("table16_orders")
+
+
+
     price = 0
     for item in i:
         price = float(item['price']) + price
@@ -179,7 +507,55 @@ def check():
     total = price + tax + total_tips
 
 
-    items = Database.find("order")
+    if(tableNo == "Table 1"):
+        items = Database.find("table1_orders")
+
+    elif(tableNo == "Table 2"):
+        items = Database.find("table2_orders")
+
+    elif(tableNo == "Table 3"):
+        items = Database.find("table3_orders")
+
+    elif(tableNo == "Table 4"):
+        items = Database.find("table4_orders")
+
+    elif(tableNo == "Table 5"):
+        items = Database.find("table5_orders")
+
+    elif(tableNo == "Table 6"):
+        items = Database.find("table6_orders")
+
+    elif(tableNo == "Table 7"):
+        items = Database.find("table7_orders")
+
+    elif(tableNo == "Table 8"):
+        items = Database.find("table8_orders")
+
+    elif(tableNo == "Table 9"):
+        items = Database.find("table9_orders")
+
+    elif(tableNo == "Table 10"):
+        items = Database.find("table10_orders")
+
+    elif(tableNo == "Table 11"):
+        items = Database.find("table11_orders")
+
+    elif(tableNo == "Table 12"):
+        items = Database.find("table12_orders")
+
+    elif(tableNo == "Table 13"):
+        items = Database.find("table13_orders")
+
+    elif(tableNo == "Table 14"):
+        items = Database.find("table14_orders")
+
+    elif(tableNo == "Table 15"):
+        items = Database.find("table15_orders")
+
+    elif(tableNo == "Table 16"):
+        items = Database.find("table16_orders")
+
+
     return render_template('checkout.html', items = items, total = round(total,2), tax=round(tax,2), tips=tips)
 
 
@@ -245,4 +621,4 @@ def chance():
 
 #running the app(a requirement to run the app
 if __name__ == '__main__':
-    app.run(port=4990, debug=True)
+    app.run(port=4996, debug=True)

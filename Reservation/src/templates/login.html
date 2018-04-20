@@ -1,6 +1,18 @@
 {% extends "home.html" %}
 {% block content %}
 
+<style>
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+
+</style>
+<div class="topright">{{ table_no }}</div>
+</div>
+
+
 <h1 align="center"> <img src="https://raw.githubusercontent.com/FahimPranjol/Snorlax-Burger-Shop/master/big_snorlax_burger_by_cathto.jpg"
                  alt="Snorlax Burger" width="128" height="100">
 </h1>
@@ -8,6 +20,8 @@
 <h1 align="center"> Welcome to Snorlax Burger Shop</h1>
 
 <center>
+
+
 <div class="container page-form">
 
     <form id="login-form" name="login-form" action="/login" method="post">

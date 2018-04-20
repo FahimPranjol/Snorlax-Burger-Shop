@@ -1,0 +1,59 @@
+
+{% extends "home.html" %}
+{% block content %}
+
+<h1 align="center"> <img src="https://raw.githubusercontent.com/FahimPranjol/Snorlax-Burger-Shop/master/big_snorlax_burger_by_cathto.jpg"
+                 alt="Snorlax Burger" width="128" height="100">
+</h1>
+
+<h1 align="center"> Welcome to Snorlax Burger Shop</h1>
+    <center>
+
+        <form action="/customer_login" method="get">
+
+<p>Enter table number:</p>
+
+
+
+            <select name="table_no" class="selectpicker form-control">
+
+
+                <option value="Table 1" name="Table_1">TABLE 1</option>
+                <option value="Table 2" name="Table_2">TABLE 2</option>
+                <option value="Table 3" name="Table_3">TABLE 3</option>
+                <option value="Table 4" name="Table_4">TABLE 4</option>
+                <option value="Table 5" name="Table_5">TABLE 5</option>
+                <option value="Table 6" name="Table_6">TABLE 6</option>
+                <option value="Table 7" name="Table_7">TABLE 7</option>
+                <option value="Table 8" name="Table_8">TABLE 8</option>
+                <option value="Table 9" name="Table_1">TABLE 9</option>
+                <option value="Table 10" name="Table_10">TABLE 10</option>
+                <option value="Table 11" name="Table_11">TABLE 11</option>
+                <option value="Table 12" name="Table_12">TABLE 12</option>
+                <option value="Table 13" name="Table_13">TABLE 13</option>
+                <option value="Table 14" name="Table_14">TABLE 14</option>
+                <option value="Table 15" name="Table_15">TABLE 15</option>
+                <option value="Table 16" name="Table_16">TABLE 16</option>
+            </select>
+
+            <br>
+            <br>
+
+            <p>Name your table(Optional)</p>
+
+
+            <input value="none" name="table_name" id="table_name">
+
+
+            <br>
+            <br>
+
+            <button type="submit">Enter</button>
+
+
+
+        </form>
+
+
+    </center>
+{% endblock %}
