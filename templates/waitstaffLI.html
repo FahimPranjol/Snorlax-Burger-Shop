@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+		<meta charset= "UTF-8">
+		<title>Employee Login</title>
+	</head>
+	<body>
+	{% block content %}
+		<h1 align="center">Snorlax Burger Waitstaff Login</h1>
+		<form action="/waitstaff/tables1" method="post">
+		<p align="center">
+			<label>Username:
+			<input type="text" name="username">
+			</label> 
+		</p>
+		<p align="center">
+			<label >Password:
+			<input align="center" type="text" name="password">
+			</label> 
+		</p>
+		<p align="center"><button>Login</button>
+			</p>
+		</form>
+
+	</body>
+{% endblock %}
+</html>

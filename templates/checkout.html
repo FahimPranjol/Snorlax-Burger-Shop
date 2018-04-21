@@ -1,0 +1,84 @@
+
+
+{% extends "home.html" %}
+{% block content %}
+
+
+<style>
+
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" style="color:black"></span></h4>
+      {% for d in items %}
+      <p>{{ d.item }} <span class="price">${{ d.price }}</span></p>
+      {% endfor %}
+      <p>Tax<span class="price">${{ tax }}</span></p>
+        <p>Tips<span class="price">${{ tips }}</span></p>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>${{ total }}</b></span></p>
+    </div>
+  </div>
+
+<center>
+
+    <form action="/coupon">
+        <button type="submit" class="btn btn-success">Enter coupon</button>
+    </form>
+    <form action="receipt">
+        <button type="submit" value="Pay by cash">Pay by cash</button>
+        <button type="submit" value="Pay by card">Pay by Card</button>
+
+    </form>
+
+
+    <br>
+
+        <button>Split check into 2</button>
+
+</center>
+
+<br>
+
+<center>
+        <h1>
+            <font size="30" color="#990000">Donation</font>
+        </h1>
+        <form>
+            <input type="number" name="amount" />
+        </form>
+        <br>
+        <br>
+        <button type="button">Donate</button>
+    </center>
+
+
+{% endblock %}
