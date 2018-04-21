@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+{% block content %}
+
+<h1 align="center"> <img src="https://raw.githubusercontent.com/FahimPranjol/Snorlax-Burger-Shop/master/big_snorlax_burger_by_cathto.jpg"
+                 alt="Snorlax Burger" width="128" height="100">
+</h1>
+
+<h1 align="center"> Welcome to Snorlax Burger Shop</h1>
+
+
+        <form action="/customer_login" method="get">
+
+            <center>
+            <p>Enter table name for table no {{ table_no }}:</p>
+
+                <input value="none"  name="table_name" id="table_name">
+
+
+            <br>
+                <button type="submit">Enter</button>
+            </form>
+            </center>
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "home.html" %}
+{% block content %}
+
+<script>
+function myFunction() {
+    alert("Your coupon has been entered successfully!");
+}
+</script>
+
+<style>
+body {
+    font-family: Arial;
+}
+
+.coupon {
+    border: 5px dotted #bbb;
+    width: 80%;
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.container {
+    padding: 2px 16px;
+    background-color: #f1f1f1;
+}
+
+.promo {
+    background: #ccc;
+    padding: 3px;
+}
+
+.expire {
+    color: red;
+}
+</style>
+</head>
+<body>
+
+<div class="coupon">
+  <div class="container">
+    <h3>Snorlax and Company</h3>
+  </div>
+  <img src="https://github.com/FahimPranjol/Snorlax-Burger-Shop/blob/master/Burger.jpg?raw=true" alt="Avatar" style="width:100%;">
+  <div class="container" style="background-color:white">
+    <h2><b>Buy an entree and get an entree for free</b></h2>
+    <p>This promo is only applied to entrees. Promo is not applied in togo, it is only available in dine in.</p>
+  </div>
+  <div class="container">
+    <p>Use Promo Code: <span class="promo">BOH232</span></p>
+    <p class="expire">Expires: Jan 03, 2017</p>
+  </div>
+</div>
+
+<center>
+
+
+    <button onclick="myFunction()">Enter</button>
+
+</center>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "home.html" %}
+{% block content %}
+
+<style>
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+
+</style>
+<div class="topright">Table no: {{ table_no }}<br>Date: {{ time }}<br>Table name: {{ table_name }}</div>
+</div>
+        <center>
+
+                <img src="https://github.com/FahimPranjol/Snorlax-Burger-Shop/blob/master/welc.png?raw=true"
+                     alt="Snorlax Burger">
+                    <br>
+                    <font size="5" color="#990000">Hello {{ email }}!</font>
+                    </h1>
+            <br>
+
+                <font color="#990000"> </font>
+                    <form action="/logout" method="post">
+                    <button type="submit" class="btn btn-success">Log Out</button>
+                    </form>
+                    <br>
+                    <form action="/games">
+                    <button type="submit">Games</button>
+                    <input type="button" value="Refill">
+                    </form>
+
+                    <form action="\help" method="post">
+                        <button type="submit" class="btn btn-success">Help</button>
+                    </form>
+                    <form action="\reward" method="post">
+                        <button type="submit" class="btn btn-success">Reward</button>
+                    </form>
+
+                    <br>
+                    <form action="/menu">
+                    <button type="submit" class="btn btn-success">Menu</button>
+                    </form>
+                    <br>
+                    <form action="/reserve" method="post">
+                    <button type="submit" class="btn btn-success" >Reservation</button>
+                    </form>
+                    <form action="/about">
+                    <button type="submit" class="bn btn-success">About</button>
+                    </form>
+
+                        <br>
+
+                    <p id="Refill"></p>
+        </center>
+        <script>
+        var btn = document.querySelector('input');
+        var txt = document.querySelector('p');
+        btn.addEventListener('click', updateBtn);
+        function updateBtn() {
+            if (btn.value === 'Refill') {
+                btn.value = 'Click if Refilled';
+                txt.textContent = 'Waitstaff has been notified';
+            } else {
+                btn.value = 'Refill';
+                txt.textContent = '';
+            }
+        }
+        </script>
+
+{% endblock %}

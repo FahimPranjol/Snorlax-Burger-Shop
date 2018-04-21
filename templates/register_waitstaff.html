@@ -1,0 +1,37 @@
+{% extends "waitstaffLI.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 align="center"> <img src="https://raw.githubusercontent.com/FahimPranjol/Snorlax-Burger-Shop/master/big_snorlax_burger_by_cathto.jpg"
+                 alt="Snorlax Burger" width="128" height="100"> Create and Assign Waitstaff
+</h1>
+<p align="center">
+    <form action="/create_waitstaff" method="post">
+    <p align="center">
+    <label>Username:
+			<input type="text" name="username">
+			</label>
+		</p>
+		<p align="center">
+			<label >Password:
+			<input align="center" type="text" name="password">
+			</label>
+		</p>
+<p align="center">
+			<label >Waitstaff ID:
+			<input align="center" type="text" name="waitstaff_id">
+			</label>
+    <br>
+    <br>
+    <button type="submit">Create Waitstaff</button>
+		</p>
+
+</form>
+</p>
+</body>
+</html>
+{% endblock %}

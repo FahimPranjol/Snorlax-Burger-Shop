@@ -1,0 +1,69 @@
+
+{% extends "home.html" %}
+{% block content %}
+
+    <p align="center">{{ name }} has been added to the cart </p>
+
+
+
+<style>
+
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" style="color:black"></b></span></h4>
+
+      {% for d in item %}
+      <p>{{ d.item }} <span class="price">${{ d.price }}</span></p>
+      <br>
+
+      {% endfor %}
+
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>${{ total }}</b></span></p>
+    </div>
+  </div>
+
+
+    <br>
+  <center>
+    <form action="/menu" method="get">
+        <input type="submit" value="Add more items"></input>
+
+    </form>
+    <form action="/addtips" method="get">
+        <input type="submit" value="checkout"></input>
+
+    </form>
+
+  </center>
+
+{% endblock %}

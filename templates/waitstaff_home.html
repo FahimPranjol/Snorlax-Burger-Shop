@@ -1,0 +1,56 @@
+{% extends "waitstaffLI.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <style>
+* {
+    box-sizing: border-box;
+}
+
+/* Create 4 equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+
+
+<h1 align="center"> <img src="https://raw.githubusercontent.com/FahimPranjol/Snorlax-Burger-Shop/master/big_snorlax_burger_by_cathto.jpg"
+                 alt="Snorlax Burger" width="128" height="100"> Snorlax Burger Waitstaff Home
+</h1>
+<h2 align="center"> Tables for {{ username }}</h2>
+<h2 align="center"> Tables: {{ tables }}</h2>
+<div class="row">
+  <p class="column">
+      {% for d in items %}
+      <p>Orders: {{ d.Item }}</p>
+      {% endfor %}
+  </p>
+  </div>
+  <div class="column">
+    <p>Orders:</p>
+  </div>
+    <div class="column">
+    <p>Orders:</p>
+  </div>
+  <div class="column">
+    <p>Orders:</p>
+  </div>
+</div>
+<center>
+<button type="submit" action="/">Log Out</button>
+</center>
+
+
+</body>
+{% endblock %}
