@@ -14,12 +14,12 @@ class Order(object):
         return{
             'item_name': self.item_name,
             'price': self.price,
-            'table': self.table
+            'table_no': self.table
         }
 
 
     #finding orders by table number
     @classmethod
     def find_orders(cls, table):
-        orders = Database.find(collection='orders',query={'table': table})
+        orders = Database.find(collection='orders', query={'table_no': table})
         return[cls(**order) for order in orders]
